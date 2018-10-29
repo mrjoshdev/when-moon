@@ -1,0 +1,12 @@
+
+<h1>Feed</h1>
+  <ul class="cryptocurrency-feed large-12">
+    <% @cryptocurrencies.each do |cryptocurrency| %>
+      <div id="feed-item">
+        <li><%= cryptocurrency.title %></li>
+        <a href="<%= cryptocurrency_path(cryptocurrency) %>"><img src="<%= cryptocurrency.photo.url %>" alt="<%= cryptocurrency.current_price %>"></a>
+      </div>
+    <% end %>
+  </ul>
+
+<button type="button" name="button"> <%= link_to "Add a cryptocurrency", new_cryptocurrency_path %> </button>
