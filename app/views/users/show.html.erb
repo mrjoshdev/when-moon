@@ -1,0 +1,20 @@
+<h1 id="name-mural-page"><%= @name %></h1>
+<h5 id="username-page"><%= @user.username %></h5>
+
+<ul id="user-list">
+<% @user.cryptocurrencies.each do |mural| %>
+<li id="user-crypto">
+  <%= cryptocurrency.name %> - <%=cryptocurrency.current_price %>
+  <img id="user-image"src="<%= user.photo %>">
+  <div id="user-description">
+    <%= cryptocurrency.current_price %>
+  </div>
+  <% if current_user.id == mural.user_id %>
+  <div id="user-actions">
+    <%= link_to "Edit", edit_cryptocurrency_path(cryptocurrency.id) %>
+    <%= link_to "Destroy", cryptocurrency_path(cryptocurrency), method: :delete %>
+  </div>
+  <% end %>
+</li>
+<% end %>
+</ul>
