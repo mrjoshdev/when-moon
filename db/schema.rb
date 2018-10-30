@@ -10,12 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_171944) do
+ActiveRecord::Schema.define(version: 2018_10_29_195002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cryptocurrencies", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "current_price", null: false
+    t.string "photo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cryptocurrencies_on_user_id"
+  end
+
+  create_table "price_goals", force: :cascade do |t|
+    t.integer "target_price", null: false
+    t.text "crypto_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "cryptocurrency_id"
+    t.bigint "user_id"
+    t.index ["cryptocurrency_id"], name: "index_price_goals_on_cryptocurrency_id"
+    t.index ["user_id"], name: "index_price_goals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "user_photo"
+    t.string "username"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
