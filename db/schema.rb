@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_195002) do
 
   create_table "cryptocurrencies", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "current_price", null: false
-    t.string "photo"
+    t.string "symbol", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -14,12 +14,12 @@
 <%= form_for [@cryptocurrency] do |f| %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :cryptocurrency_name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :current_price %>
-    <%= f.number_field :current_price %>
+    <%= f.label :symbol %>
+    <%= f.text_field :symbol %>
   </div>
 
   <div class="actions">

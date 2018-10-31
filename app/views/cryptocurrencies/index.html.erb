@@ -1,28 +1,63 @@
 
 <h1>When Moon</h1>
-  <ul class="cryptocurrency-feed large-12">
-    <% @cryptocurrencies.each do |cryptocurrency| %>
-      <div id="feed-item">
-        <li><%= cryptocurrency.title %></li>
-        <a href="<%= cryptocurrency_path(cryptocurrency) %>"><img src="<%= cryptocurrency.photo.url %>" alt="<%= cryptocurrency.current_price %>"></a>
-      </div>
-    <% end %>
-  </ul>
+<ul class="cryptocurrency-feed large-12">
 
-  <p>
-      <%= image_tag("Rocket_Image.png", :class=>"rocket") %>
-      <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-      <div id='stars'></div>
-      <div id='stars2'></div>
-      <div id='stars3'></div>
-      <div id='title'>
-        <span>
-          WHEN MOON?
-        </span>
-          <br>
-        <span>
-        </span>
-      </div>
-  </p>
+</ul>
+
+<p>
+  <%= image_tag("Rocket_Image.png", :class=>"rocket") %>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <div id='title'>
+    <span>
+      WHEN MOON?
+    </span>
+    <br>
+    <span>
+    </span>
+  </div>
+</p>
 
 <button type="button" name="button"> <%= link_to "Add a cryptocurrency", new_cryptocurrency_path %> </button>
+<br>
+<br>
+<div class="crypto_list">
+
+  <% num = 0 %>
+  <% @cryptocurrencies.each do |coin1| %>
+  <% num += 1 %>
+    Coin: <%= coin1["name"] %>
+    <br>
+    Symbol: $<%= coin1["symbol"] %>
+    <br>
+  <br>
+  <% end %>
+<p>
+  <span id="first_name">
+  <% if current_user %>
+    <%= current_user.first_name %>'s favorite crptocurrenices
+  <% end %>
+  </span>
+</p>
+  <% num = 0 %>
+  <% @coins["data"].each do |coin| %>
+    <% num += 1 %>
+    <% num.to_s %>
+    <% if current_user %>
+      <% @user_cryptocurrencies.each do |cc| %>
+
+        <% if current_user['id'] && cc.id == coin[1]["id"] %>
+
+          Coin: <%= coin[1]["symbol"] %>
+          <br>
+          Current Price: $<%= coin[1]["quotes"]["USD"]["price"] %>
+          <br>
+        <br>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+</div>

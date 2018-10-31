@@ -1,7 +1,17 @@
 class CryptocurrenciesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   def index
+    require 'net/http'
+    require 'json'
+
     @cryptocurrencies = Cryptocurrency.all
+    @url = 'https://api.coinmarketcap.com/v2/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @coins = JSON.parse(@response)
+    if current_user
+      @user_cryptocurrencies = current_user.cryptocurrencies
+    end
   end
 
   def new
@@ -49,6 +59,6 @@ class CryptocurrenciesController < ApplicationController
   private
 
   def cryptocurrency_params
-    params.require(:cryptocurrency).permit(:title,:photo,:description,:location)
+    params.require(:cryptocurrency).permit(:name,:symbol)
   end
 end
