@@ -1,5 +1,4 @@
-
-<h1>When Moon</h1>
+<h1></h1>
 <ul class="cryptocurrency-feed large-12">
 
 </ul>
@@ -20,12 +19,12 @@
   </div>
 </p>
 
-<button type="button" name="button"> <%= link_to "Add a cryptocurrency", new_cryptocurrency_path %> </button>
+<button id="button" type="button" name="button"> <%= link_to "Add a cryptocurrency", new_cryptocurrency_path %> </button>
 <br>
 <br>
-<div class="crypto_list">
-  Cryptocurrencies Database <br>
-  <% num = 0 %>
+ <div class="crypto_list">
+<!--   Cryptocurrencies Database <br>
+<!--  <% num = 0 %>
   <% @cryptocurrencies.each do |coin1| %>
   <% num += 1 %>
     Coin: <%= coin1["name"] %>
@@ -33,11 +32,11 @@
     Symbol: $<%= coin1["symbol"] %>
     <br>
   <br>
-  <% end %>
+  <% end %> -->
 <p>
   <span id="first_name">
   <% if current_user %>
-    <%= current_user.first_name %>'s favorite crptocurrenices
+    <%= current_user.first_name %>'s favorite cryptocurrenices
   <% end %>
   </span>
 </p>
