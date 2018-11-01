@@ -15,4 +15,18 @@
  *= require foundation_and_overrides
 
  */
- 
+ h1 {
+   color: white;
+ }
+
+ h4 {
+   color: white;
+ }
+
+ a {
+   color: #FFF;
+ }
+
+h2 {
+  color: #FFF;
+}
