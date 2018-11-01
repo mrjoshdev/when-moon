@@ -1,7 +1,7 @@
 class Cryptocurrency < ApplicationRecord
   validates :name, presence: true
-  validates :current_price, presence: true
+  validates :symbol, presence: true
 
   belongs_to :user
-  has_many :reviews
+  has_many :favorites
 end
