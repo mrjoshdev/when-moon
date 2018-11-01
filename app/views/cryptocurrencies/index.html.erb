@@ -24,7 +24,7 @@
 <br>
 <br>
 <div class="crypto_list">
-
+  Cryptocurrencies Database <br>
   <% num = 0 %>
   <% @cryptocurrencies.each do |coin1| %>
   <% num += 1 %>
@@ -48,7 +48,7 @@
     <% if current_user %>
       <% @user_cryptocurrencies.each do |cc| %>
 
-        <% if current_user['id'] && cc.id == coin[1]["id"] %>
+        <% if current_user['id'] && cc.symbol == coin[1]["symbol"] %>
 
           Coin: <%= coin[1]["symbol"] %>
           <br>
