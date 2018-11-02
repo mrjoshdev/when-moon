@@ -1,7 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Route, IndexRoute, Router, browserHistory } from 'react-router';
+import ReactDOM from "react-dom";
+import ChartContainer from "../containers/ChartContainer";
 
-export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+const App = (props) => {
+  return (
+    <div>
+      <Router history={browserHistory}>
+        <Route path='/' component={ChartContainer} />
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
