@@ -13,6 +13,7 @@
     <span>
       WHEN MOON?
     </span>
+  <%= image_tag("Super_Moon.png", :class=>"moon") %>
     <br>
     <span>
     </span>
@@ -20,9 +21,15 @@
 </p>
 
 <button id="button" type="button" name="button"> <%= link_to "Add a cryptocurrency", new_cryptocurrency_path %> </button>
+
 <br>
 <br>
- <div class="crypto_list">
+  <div id="app">
+  </div>
+<br>
+<br>
+
+<div class="crypto_list">
 <!--   Cryptocurrencies Database <br>
 <!--  <% num = 0 %>
   <% @cryptocurrencies.each do |coin1| %>
