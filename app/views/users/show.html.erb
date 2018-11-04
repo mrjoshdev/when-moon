@@ -1,19 +1,23 @@
 <h1 id="name-crypto-page"><%= @name %></h1>
+<div id="user-show-moon">
+  <%= image_tag("Super_Moon.png", :class=>"moon") %>
+</div>
 <h5 id="username-page"><%= "My favorite crypto" %></h5>
 
-<ul id="user-list">
-<% @user.cryptocurrencies.each do |cryptocurrency| %>
-<li id="user-crypto">
-  <%= cryptocurrency.name %> - <%=cryptocurrency.symbol %>
+<div id="user-list">
+  <% @user.cryptocurrencies.each do |cryptocurrency| %>
   <div id="user-crypto">
-    <%= cryptocurrency.symbol %>
-  </div>
-  <% if current_user.id == cryptocurrency.user_id %>
-  <div id="user-actions">
-    <%= link_to "Edit", edit_cryptocurrency_path(cryptocurrency.id) %>
-    <%= link_to "Destroy", cryptocurrency_path(cryptocurrency), method: :delete %>
+    <%= cryptocurrency.name %> - <%=cryptocurrency.symbol %>
+    <div id="user-crypto">
+      <%= cryptocurrency.symbol %>
+    </div>
+    <% if current_user.id == cryptocurrency.user_id %>
+    <div id="user-actions">
+    <button id="button" type="button" name="button"> <%= link_to "Edit", edit_cryptocurrency_path(cryptocurrency.id) %></button>
+    <button id="button" type="button" name="button"> <%= link_to "Destroy", cryptocurrency_path(cryptocurrency), method: :delete %></button>
+    </div>
+    <br>
+    <% end %>
   </div>
   <% end %>
-</li>
-<% end %>
-</ul>
+</div>
