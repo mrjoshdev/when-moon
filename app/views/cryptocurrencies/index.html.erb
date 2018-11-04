@@ -20,8 +20,8 @@
   </div>
 </p>
 
-<button id="button" type="button" name="button"> <%= link_to "Add a cryptocurrency", new_cryptocurrency_path %> </button>
-
+<button id="button" type="button" name="button"> <%= link_to "Add a Cryptocurrency", new_cryptocurrency_path %> </button>
+<button id="button" type="button" name="button"> <%= link_to "Edit Cryptocurrency", "/users/#{current_user.id}" %> </button>
 <br>
 <br>
   <div id="app">
@@ -58,7 +58,7 @@
 
           Coin: <%= coin[1]["symbol"] %>
           <br>
-          Current Price: $<%= coin[1]["quotes"]["USD"]["price"] %>
+          Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
           <br>
         <br>
         <% end %>

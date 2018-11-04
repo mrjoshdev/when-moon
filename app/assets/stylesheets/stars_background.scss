@@ -1,7 +1,7 @@
 html {
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  overflow: hidden;
+  background: black;
+  overflow: auto;
 }
 
 body {
@@ -66,8 +66,8 @@ label {
 }
 
 #title {
-  position: absolute;
-  top: 15%;
+  position: relative;
+  top: 2%;
   left: 0;
   right: 0;
   color: #FFF;
