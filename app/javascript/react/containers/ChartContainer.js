@@ -3,22 +3,65 @@ import ReactDOM from "react-dom";
 import Chart from "react-google-charts";
 
 const data = [
-  ["Year", "Visitations", { role: "style" }],
-  ["2010", 10, "color: gray"],
-  ["2020", 14, "color: #76A7FA"],
-  ["2030", 16, "color: blue"],
-  ["2040", 22, "stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF"],
-  [
-    "2050",
-    28,
-    "stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2"
-  ]
+  ["Cryptocurrency", "Current Price", { role: "style" }],
+  ["BTC", 600, "color: gray"],
+  ["ETH", 200, "color: #76A7FA"],
+  ["LTC", 50, "color: blue"],
+  ["ETC", 10, "stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF"]
 ];
+
 class ChartContainer extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    cryptocurrency_array: []
+  }
+}
+
+componentDidMount(){
+  fetch (`https://api.coinmarketcap.com/v2/ticker/`)
+  .then(response => {
+    if (response.ok) {
+      return response;
+    } else {
+      let errorMessage = `${response.status} (${response.statusText})`,
+      error = new Error(errorMessage);
+      throw(error);
+    }
+  })
+  .then(response => response.json())
+  .then(body => {
+    this.setState({cryptocurrency_array: body})
+  })
+}
   render() {
+    debugger
+    // const data = (this.state.cryptocurrency_array || {}).data
+    // let relevantData =
+    // for (const key in data) {
+    //   const currency = data[key]
+    //
+    //   if(currency) {
+    //     console.log(currency.symbol)
+    //   }
+
+    // }
+    let counter = 0;
+    let dataCrypto = ["symbol", "price"]
+    let length = this.state.cryptocurrency_array.length
+    while (counter < length) {
+      dataCrypto.push([parseInt(this.state.cryptocurrency_array["data"][1]["qoutes"]["USD"]["symbol"], this.state.cryptocurrency_array["data"][1]["qoutes"]["USD"]["price"])])
+      console.log(dataCrypto)
+      counter = counter + 1;
+    }
     return (
       <div className="App">
-        <Chart chartType="Bar" width="80%" height="400px" data={data} align="center" />
+      <Chart
+      chartType="Bar"
+      width="80%"
+      height="400px"
+      data={dataCrypto}
+      align="center" />
       </div>
     )
   }

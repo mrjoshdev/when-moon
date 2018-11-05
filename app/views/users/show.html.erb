@@ -14,7 +14,7 @@
     <% if current_user.id == cryptocurrency.user_id %>
     <div id="user-actions">
     <button id="button" type="button" name="button"> <%= link_to "Edit", edit_cryptocurrency_path(cryptocurrency.id) %></button>
-    <button id="button" type="button" name="button"> <%= link_to "Destroy", cryptocurrency_path(cryptocurrency), method: :delete %></button>
+    <button id="button" type="button" name="button"> <%= link_to "Delete", cryptocurrency_path(cryptocurrency), method: :delete %></button>
     </div>
     <br>
     <% end %>
