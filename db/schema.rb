@@ -18,21 +18,11 @@ ActiveRecord::Schema.define(version: 2018_10_29_195002) do
   create_table "cryptocurrencies", force: :cascade do |t|
     t.string "name", null: false
     t.string "symbol", null: false
+    t.integer "target_price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cryptocurrencies_on_user_id"
-  end
-
-  create_table "price_goals", force: :cascade do |t|
-    t.integer "target_price", null: false
-    t.text "crypto_name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "cryptocurrency_id"
-    t.bigint "user_id"
-    t.index ["cryptocurrency_id"], name: "index_price_goals_on_cryptocurrency_id"
-    t.index ["user_id"], name: "index_price_goals_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
