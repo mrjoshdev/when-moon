@@ -1,7 +1,7 @@
 #button {
  border-radius: 25px;
  background-color: #6D6A75;
- margin: 25px;
+ margin: 20px;
  a {
    color: #FFF;
  }
@@ -9,4 +9,11 @@
 
 #button:hover {
  background-color: transparent;
+}
+
+.submit {
+ border-radius: 25px;
+ background-color: #6D6A75;
+ margin: 25px;
+   color: #FFF;
 }

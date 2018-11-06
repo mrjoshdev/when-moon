@@ -33,6 +33,7 @@ dt {
 }
 
 .percentage {
+  opacity: 0.8;
   font-size: .8em;
   line-height: 1;
   text-transform: uppercase;
@@ -41,16 +42,20 @@ dt {
   margin-left: 130px;
   background: repeating-linear-gradient(
   to right,
-  #ddd,
-  #ddd 1px,
-  #fff 1px,
-  #fff 5%
+  transparent,
+  transparent 1px,
+  #8c8c8c 1px,
+  #8c8c8c 5%
 );
 
   &:after {
     content: "";
     display: block;
-    background-color: #3d9970;
+    background-image: -webkit-linear-gradient(top, #E00083, #583047);
+    background-image: -moz-linear-gradient(top, #E00083, #583047);
+    background-image: -ms-linear-gradient(top, #E00083, #583047);
+    background-image: -o-linear-gradient(top, #E00083, #583047);
+    background-image: linear-gradient(to bottom, #E00083, #583047);
     width: 50px;
     margin-bottom: 10px;
     height: 90%;
@@ -81,4 +86,9 @@ html, body {
   height: 500px;
   font-family: "fira-sans-2",sans-serif;
   color: #333;
+}
+
+#moon-price {
+  position: sticky;
+  text-align: right;
 }
