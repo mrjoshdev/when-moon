@@ -26,10 +26,19 @@
 <% end %>
 <br>
 <br>
-  <div id="app">
-  </div>
 <br>
 <br>
+
+<dl>
+  <dt>
+    Progress to Moon
+  </dt>
+  <dd class="percentage percentage-11"><span class="text-css-chart">BTC: 11.33%</span></dd>
+  <dd class="percentage percentage-49"><span class="text-css-chart">ETH: 49.77%</span></dd>
+  <dd class="percentage percentage-16"><span class="text-css-chart">ETC: 16.09%</span></dd>
+  <dd class="percentage percentage-5"><span class="text-css-chart">LTC: 5.41%</span></dd>
+  <dd class="percentage percentage-2"><span class="text-css-chart">EOS: 1.62%</span></dd>
+  <dd class="percentage percentage-2"><span class="text-css-chart">DOGE: 2%</span></dd>
 
 <div class="crypto_list">
 <!--   Cryptocurrencies Database <br>
@@ -57,10 +66,16 @@
       <% @user_cryptocurrencies.each do |cc| %>
 
         <% if current_user['id'] && cc.symbol == coin[1]["symbol"] %>
+        <%= target = cc.target_price %>
+        <%= current_price = coin[1]["quotes"]["USD"]["price"] %> <br>
+        <%= progress = (current_price / target * 100).round %>
 
           Coin: <%= coin[1]["symbol"] %>
           <br>
+          <%=  %>
           Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
+          <%= progress_bar = "percentage percentage-#{progress}" %>
+          <dd class=<%=progress_bar%>><span class="text-css-chart"><%= coin[1]["symbol"] %></span></dd>
           <br>
         <br>
         <% end %>
@@ -69,3 +84,5 @@
   <% end %>
 
 </div>
+
+</dl>

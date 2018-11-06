@@ -59,6 +59,6 @@ class CryptocurrenciesController < ApplicationController
   private
 
   def cryptocurrency_params
-    params.require(:cryptocurrency).permit(:name,:symbol)
+    params.require(:cryptocurrency).permit(:name,:symbol,:target_price)
   end
 end
