@@ -35,14 +35,13 @@
         <% current_price = coin[1]["quotes"]["USD"]["price"] %> <br>
         <% progress = (current_price / target * 100).round %>
 
-          <div class="chart-dynamic">
+
           Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
-          <% progress_bar = "percentage percentage-#{progress}" %>
           <dd class='percentage percentage-<%=progress%>'><span class="text-css-chart"><%= coin[1]["symbol"] %></span></dd>
             <div id="moon-price">
               Moon Price $<%= target %>
             </div>
-          </div>
+
 
           <br>
         <br>
