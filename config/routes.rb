@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :cryptocurrencies, only: [:index, :show]
-      resources :price_goals, only: [:index, :show, :create]
       resources :user, only: [:index]
     end
   end

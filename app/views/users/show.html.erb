@@ -3,13 +3,10 @@
   <div id='stars'></div>
   <div id='stars2'></div>
   <div id='stars3'></div>
-  <div id='title'>
-  </div>
+  <div id='title'></div>
 </p>
-
 <h5 id="username-page"><%="Captain #{@name}'s"%></h5>
 <h5 id="username-page"><%= "Favorite Crypto" %></h5>
-
 <div id="user-list">
   <% @user.cryptocurrencies.each do |cryptocurrency| %>
   <div id="user-crypto">
@@ -18,10 +15,10 @@
       <%= cryptocurrency.symbol %>
     </div>
     <% if current_user.id == cryptocurrency.user_id %>
-    <div id="user-actions">
-    <button id="button" type="button" name="button"> <%= link_to "Edit", edit_cryptocurrency_path(cryptocurrency.id) %></button>
-    <button id="button" type="button" name="button"> <%= link_to "Delete", cryptocurrency_path(cryptocurrency), method: :delete %></button>
-    </div>
+      <div id="user-actions">
+        <button id="button" type="button" name="button"> <%= link_to "Edit", edit_cryptocurrency_path(cryptocurrency.id) %></button>
+        <button id="button" type="button" name="button"> <%= link_to "Delete", cryptocurrency_path(cryptocurrency), method: :delete %></button>
+      </div>
     <br>
     <% end %>
   </div>

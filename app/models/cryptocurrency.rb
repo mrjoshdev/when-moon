@@ -5,5 +5,4 @@ class Cryptocurrency < ApplicationRecord
   validates :target_price, presence: true
 
   belongs_to :user
-  has_many :favorites
 end
