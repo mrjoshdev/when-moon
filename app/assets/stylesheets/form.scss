@@ -1,10 +1,10 @@
 #cryptocurrency-form {
   margin: auto;
-  width: 30%;
+  width: 40%;
   label {
     color: #FFF;
     text-align: left;
-    margin: 0px
+    margin-bottom: 0;
   }
   input {
     border-radius: 25px;
@@ -17,6 +17,8 @@
   background-color: black;
   color: white;
   font-family: "lato", sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 #name-crypto-page {
