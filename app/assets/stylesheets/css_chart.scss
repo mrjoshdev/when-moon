@@ -83,3 +83,17 @@ html, body {
   text-align: center;
   font-style: italic;
 }
+
+.moon-acheived {
+  font-size: large;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

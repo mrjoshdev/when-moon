@@ -4,8 +4,10 @@
 }
 
 .rocket2 {
-  height: 2000px;
-  width: 1000px;
-  float: right;
+  float: center;
   margin-top: 0;
+  min-height: 100px;
+  min-width: 50px;
+  max-height: 200px;
+  max-width: 100px;
 }

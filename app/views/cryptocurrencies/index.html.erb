@@ -26,16 +26,22 @@
         <% if current_user %>
           <% @user_cryptocurrencies.each do |cc| %>
             <% if current_user['id'] && cc.symbol == coin[1]["symbol"] %>
-            <% target = cc.target_price %>
-            <% current_price = coin[1]["quotes"]["USD"]["price"] %> <br>
-            <% progress = (current_price / target * 100).round %>
-              Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
-              <dd class='percentage percentage-<%=progress%>'><span class="text-css-chart"><%= coin[1]["symbol"] %></span></dd>
-                <div id="moon-price">
-                  Moon Price $<%= target %>
-                </div>
+              <% target = cc.target_price %>
+              <% current_price = coin[1]["quotes"]["USD"]["price"] %> <br>
+              <% progress = (current_price / target * 100).round %>
+                Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
+                <br>
+                <% if current_price >= target %>
+                  <%= cc.symbol %>
+                  <div id="moon-acheived" class="blink_me">MOON NOW!</div><%= image_tag("Rocket2.png", :class=>"rocket2") %>
+                <% else %>
+                  <dd class='percentage percentage-<%=progress%>'><span class="text-css-chart"><%= coin[1]["symbol"] %></span></dd>
+                    <div id="moon-price">
+                      Moon Price $<%= target %>
+                    </div>
+                <% end %>
+                <br>
               <br>
-            <br>
             <% end %>
           <% end %>
         <% end %>
