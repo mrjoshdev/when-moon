@@ -1,14 +1,11 @@
 <h4 id="form-title">New Cryptocurrency Form</h4>
-
 <p>
   <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <div id='stars'></div>
   <div id='stars2'></div>
   <div id='stars3'></div>
-  <div id='title'>
-  </div>
+  <div id='title'></div>
 </p>
-
 <% if @cryptocurrency.errors %>
   <div name = "errorDiv">
     <ul name = "errors">
@@ -18,30 +15,25 @@
     </ul>
   </div>
 <% end %>
-
 <div id="cryptocurrency-form">
-<%= form_for [@cryptocurrency] do |f| %>
-
-  <div class="field">
-    <%= f.label :cryptocurrency_name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :symbol %>
-    <%= f.text_field :symbol %>
-  </div>
-  <div class="field">
-    <%= f.label :target_price_in_USD %>
-    <%= f.number_field :target_price %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit", :class => 'submit' %>
-  </div>
-<% end %>
+  <%= form_for [@cryptocurrency] do |f| %>
+    <div class="field">
+      <%= f.label :cryptocurrency_name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :symbol %>
+      <%= f.text_field :symbol %>
+    </div>
+    <div class="field">
+      <%= f.label :target_price_in_USD %>
+      <%= f.number_field :target_price %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit", :class => 'submit' %>
+    </div>
+  <% end %>
 </div>
-
-
 <p>
  <%= image_tag("Super_Moon.png", :class=>"moon") %>
 </p>

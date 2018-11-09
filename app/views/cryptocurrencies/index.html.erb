@@ -1,10 +1,8 @@
 <div class="margin-spacer">
-
-<button id="button" type="button" name="button"> <%= link_to "Add Cryptocurrency", new_cryptocurrency_path %> </button>
-<% if current_user %>
-<button id="button" type="button" name="button"> <%= link_to "Edit Cryptocurrency", "/users/#{current_user.id}"%> </button>
-<% end %>
-
+  <button id="button" type="button" name="button"> <%= link_to "Add Cryptocurrency", new_cryptocurrency_path %> </button>
+  <% if current_user %>
+    <button id="button" type="button" name="button"> <%= link_to "Edit Cryptocurrency", "/users/#{current_user.id}"%> </button>
+  <% end %>
 
   <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <div id='stars'></div>
@@ -12,46 +10,36 @@
   <div id='stars3'></div>
 
   <%= image_tag("Super_Moon.png", :class=>"moon") %>
-
-
-<dl>
-<div class="crypto_list">
-<p>
-  <span id="first_name">
-  <% if current_user %>
-    <%= current_user.first_name %>'s Progress to the Moon
-  <% end %>
-  </span>
-</p>
-  <% num = 0 %>
-  <% @coins["data"].each do |coin| %>
-    <% num += 1 %>
-    <% num.to_s %>
-    <% if current_user %>
-      <% @user_cryptocurrencies.each do |cc| %>
-
-        <% if current_user['id'] && cc.symbol == coin[1]["symbol"] %>
-        <% target = cc.target_price %>
-        <% current_price = coin[1]["quotes"]["USD"]["price"] %> <br>
-        <% progress = (current_price / target * 100).round %>
-
-
-          Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
-          <dd class='percentage percentage-<%=progress%>'><span class="text-css-chart"><%= coin[1]["symbol"] %></span></dd>
-            <div id="moon-price">
-              Moon Price $<%= target %>
-            </div>
-
-
-          <br>
-        <br>
+  <dl>
+    <div class="crypto_list">
+    <p>
+      <span id="first_name">
+      <% if current_user %>
+        <%= current_user.first_name %>'s Progress to the Moon
+      <% end %>
+      </span>
+    </p>
+      <% num = 0 %>
+      <% @coins["data"].each do |coin| %>
+        <% num += 1 %>
+        <% num.to_s %>
+        <% if current_user %>
+          <% @user_cryptocurrencies.each do |cc| %>
+            <% if current_user['id'] && cc.symbol == coin[1]["symbol"] %>
+            <% target = cc.target_price %>
+            <% current_price = coin[1]["quotes"]["USD"]["price"] %> <br>
+            <% progress = (current_price / target * 100).round %>
+              Current Price: $<%= '%.3f' % coin[1]["quotes"]["USD"]["price"] %>
+              <dd class='percentage percentage-<%=progress%>'><span class="text-css-chart"><%= coin[1]["symbol"] %></span></dd>
+                <div id="moon-price">
+                  Moon Price $<%= target %>
+                </div>
+              <br>
+            <br>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-
-</div>
-
-</dl>
-
+    </div>
+  </dl>
 </div>
