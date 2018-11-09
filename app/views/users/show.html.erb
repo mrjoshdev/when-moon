@@ -7,12 +7,12 @@
   </div>
 </p>
 
-<h1 id="name-crypto-page"><%="Captain - #{@name}"%></h1>
 
 <div id="user-show-moon">
   <%= image_tag("Super_Moon.png", :class=>"moon") %>
 </div>
-<h5 id="username-page"><%= "My favorite crypto" %></h5>
+<h5 id="username-page"><%="Captain #{@name}'s"%></h5>
+<h5 id="username-page"><%= "Favorite Crypto" %></h5>
 
 <div id="user-list">
   <% @user.cryptocurrencies.each do |cryptocurrency| %>
