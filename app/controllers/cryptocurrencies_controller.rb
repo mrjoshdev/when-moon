@@ -5,7 +5,7 @@ class CryptocurrenciesController < ApplicationController
     require 'json'
 
     @cryptocurrencies = Cryptocurrency.all
-    @url = 'https://api.coinmarketcap.com/v2/ticker/'
+    @url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @coins = JSON.parse(@response)
